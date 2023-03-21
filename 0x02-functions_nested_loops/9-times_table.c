@@ -20,5 +20,4 @@ void times_table(void)
 		}
 		a++;
 	}
-	return (0);
 }
