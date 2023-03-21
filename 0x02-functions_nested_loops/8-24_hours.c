@@ -20,11 +20,11 @@ void jack_bauer(void)
 					if (a >= 2 && b >= 4)
 						break;
 
-					_putchar(a);
-					_putchar(b);
+					_putchar(a + 48);
+					_putchar(b + 48);
 					_putchar(58);
-					_putchar(c);
-					_putchar(d);
+					_putchar(c + 48);
+					_putchar(d + 48);
 					_putchar('\n');
 				}
 			}
