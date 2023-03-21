@@ -9,5 +9,14 @@
 
 int print_last_digit(int i)
 {
-	return (i % 10);
+	int l = i % 10;
+
+	if (l < 0)
+	{
+		return (-l);
+	}
+	else
+	{
+		return (l);
+	}
 }
