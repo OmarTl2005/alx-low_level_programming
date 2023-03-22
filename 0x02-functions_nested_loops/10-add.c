@@ -1,14 +1,12 @@
 #include "main.h"
 /**
   *add - adds two integers and returns the result
-  *
-  *Return: always 0
+  *@a: the first number to be computed
+  *@b: the second number to be computed
+  *Return: sum
   */
 
-int add(int, int)
+int add(int a, int b)
 {
-	int a, b, c;
-
-	c = a + b;
-	_putchar(c);
+	return (a + b);
 }
