@@ -19,3 +19,4 @@ char *_strcpy(char *dest, char *src)
 	*(dest + len) = '\0';
 	return (dest);
 }
+
