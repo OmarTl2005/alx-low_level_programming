@@ -1,14 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
+#include <string.h>
 /**
-  *string_nconcat - concatenates two strings.
-  *@s1: var
-  *@s2: var
-  *@n: var
-  *Return: nothing
-  */
-
+ * string_nconcat - function that concatenates two strings
+ * @s1: variable of type char
+ * @s2: second variable of type char
+ * @n: integer
+ * Return: point to a newly allocated space in memory which contains the
+ * contents of s1, followed by the contents of s2, and null terminated
+ */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
