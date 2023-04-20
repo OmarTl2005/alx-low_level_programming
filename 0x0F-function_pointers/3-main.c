@@ -1,12 +1,12 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "calc.h"
+#include "3-calc.h"
+
 /**
-  *main- entry point
-  *@argc: argument counter
-  *@argv: argument vector
-  *Return: no return
-  */
+ * main - check the code for Holberton School students.
+ * @argc: argument count.
+ * @argv: argument vector.
+ *
+ * Return: Always 0.
+ */
 int main(int argc, char *argv[])
 {
 	int a, b;
@@ -21,9 +21,10 @@ int main(int argc, char *argv[])
 	if (argv[2][1])
 	{
 		printf("Error\n");
-		exit(98);
+		exit(99);
 	}
-	operation == get_op_func(argv[2]);
+
+	operation = get_op_func(argv[2]);
 
 	if (operation == NULL)
 	{

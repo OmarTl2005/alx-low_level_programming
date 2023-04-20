@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "clac.h"
+#include "3-calc.h"
 
 /**
   *op_add - adds a to b
@@ -48,12 +48,12 @@ int op_div(int a, int b)
 	return (a / b);
 }
 /**
-  *op_mob - reminder of a / b
+  *op_mod - reminder of a / b
   *@a: num1
   *@b: num2
   *Return: a % b
   */
-int op_mob(int a, int b)
+int op_mod(int a, int b)
 {
 	if (b == 0)
 	{
