@@ -1,31 +1,29 @@
 #include "main.h"
+/* betty style doc for function main goes there */
 /**
-*_strspn - search the number of bytes in the initial
-* segment of s which consist only of bytes from accept
-*@s:segment targeted
-*@accept:reference bytes container
-*
-*Return:returns the number of bytes in the initial
-* segment of s which consist only of bytes from accept
-*/
+ * _strspn-  function that gets the length of a prefix substring..
+ * @accept:sub string pointer
+ * @s : main string
+ *Return:Returns the number of bytes in the intial of s containin only accept
+ */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int bytes = 0;
-	int i;
+	unsigned int len = 0;
+	char *p = s;
 
-	while (*s)
+	while (*accept)
 	{
-		for (i = 0; accept[i]; i++)
+		while (*p && *p != ' ' && *p != ',')
 		{
-			if (accept[i] == *s)
+			if (*p == *accept)
 			{
-				bytes++;
-				break;
+				len++;
 			}
-			else if ((accept[i + 1]) == '\0')
-				return (bytes);
+			p++;
 		}
-		s++;
+		accept++;
+		p = s;
 	}
-	return (bytes);
+	return (len);
 }
+
