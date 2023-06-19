@@ -1,5 +1,6 @@
-#ifndef _HEAD_H_
-#define _HEAD_H_
+#ifndef DYNLIB
+#define DYNLIB
+
 #include <stdlib.h>
 
 int _putchar(char c);
@@ -23,5 +24,4 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
 
-#endif 
-
+#endif
