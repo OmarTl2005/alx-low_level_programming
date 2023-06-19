@@ -1,28 +1,28 @@
 #include "main.h"
-/* betty style doc for function main goes there */
+#include <stdio.h>
+
 /**
- * _strchr-  function that locates a character in a string.
- * @s: string pointer
- * @c: char
- * Return: Returns a pointer to the first occurence of the string.
+ * *_strchr - locates a character in a string
+ * @s: string to search
+ * @c: char to find
+ *
+ * Return: a pointer to the first occurrence of the character
+ * c in the string s, or NULL if the character is not found
  */
 char *_strchr(char *s, char c)
 {
-	while (*s)
-	{
-		if (*s == c)
-		{
-			return (s);
-		}
-		s++;
-	}
-	if (*s == c)
-	{
-		return (s);
-	}
-	else
-	{
-		return ('\0');
-	}
-}
+		int a;
 
+		while (1)
+		{
+			a = *s++;
+			if (a == c)
+			{
+				return (s - 1);
+			}
+			if (a == 0)
+			{
+				return (NULL);
+			}
+		}
+}

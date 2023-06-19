@@ -1,30 +1,27 @@
 #include "main.h"
-/* betty style doc for function main goes there */
+#include <stdio.h>
+
 /**
- * _strstr-  searh a string for any set of bytes
- * @haystack:string1
- * @needle : string2
- *Return: a pointer to the beginning of the located substring, or NULL.
-*/
+ * *_strstr - locates a substring
+ * @haystack: string to search in
+ * @needle: substring to look for
+ *
+ * Return: pointer to the beginning of the located substring
+ * or NULL if the substring is not found
+ */
 char *_strstr(char *haystack, char *needle)
 {
-	char *beg_hay;
-	char *p_need;
+	int i, j;
 
-	while (*haystack != '\0')
+	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		beg_hay = haystack;
-		p_need = needle;
-
-		while (*haystack != '\0' && *p_need != '\0' && *haystack == *p_need)
+		for (j = 0; needle[j] != '\0'; j++)
 		{
-			haystack++;
-			p_need++;
+			if (haystack[i + j] != needle[j])
+				break;
 		}
-		if (!*p_need)
-			return (beg_hay);
-		haystack = beg_hay + 1;
+		if (!needle[j])
+			return (&haystack[i]);
 	}
-	return (0);
+	return (NULL);
 }
-

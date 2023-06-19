@@ -1,22 +1,21 @@
 #include "main.h"
-/* betty style doc for function main goes there */
+
 /**
- * _memcpy- Similar to memcpy function, copies n bytes from memory area src src
- * @dest : copy destination
- * @src : source
- * @n: size of bytes to be copied
- * Return: returns pointer to dest
+ * *_memcpy - copies memory area
+ * @dest: destination memory area
+ * @src: memory area to copy from
+ * @n: number of bytes to copy
+ *
+ * Return: pointer to dest
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int i = 0;
+	unsigned int i;
 
-	while (i < n)
+	for (i = 0; i < n; i++)
 	{
-		dest[i] = *src;
-		i++;
-		src++;
+		dest[i] = src[i];
 	}
+
 	return (dest);
 }
-

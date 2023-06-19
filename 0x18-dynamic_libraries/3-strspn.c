@@ -1,29 +1,35 @@
 #include "main.h"
-/* betty style doc for function main goes there */
+
 /**
- * _strspn-  function that gets the length of a prefix substring..
- * @accept:sub string pointer
- * @s : main string
- *Return:Returns the number of bytes in the intial of s containin only accept
+ * *_strspn - gets the length of a prefix substring
+ * @s: string to evaluate
+ * @accept: string containing the list of characters to match in s
+ *
+ * Return: the number of bytes in the initial segment
+ * of s which consist only of bytes from accept
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int len = 0;
-	char *p = s;
+	int i, j, f, flag;
 
-	while (*accept)
+	f = 0;
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		while (*p && *p != ' ' && *p != ',')
+		flag = 0;
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (*p == *accept)
+			if (s[i] == accept[j])
 			{
-				len++;
+				f++;
+				flag = 1;
 			}
-			p++;
 		}
-		accept++;
-		p = s;
+		if (flag == 0)
+		{
+			return (f);
+		}
 	}
-	return (len);
-}
 
+	return (0);
+}

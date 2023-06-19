@@ -1,2 +1,1 @@
-this is a readme file
-
+dynamic libraries
