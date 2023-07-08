@@ -1,40 +1,65 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_set - adds an element to the hash table
+ * add_n_hash - adds a node at the beginning of a hash at a given index
  *
- * @ht: hash table to add or update the key/value to
- * @key: key to add to the hash table
- * @value: value associated with the key
- * Return: 1 if it succeeded, 0 otherwise
+ * @head: head of the hash linked list
+ * @key: key of the hash
+ * @value: value to store
+ * Return: head of the hash
  */
-
-int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+hash_node_t *add_n_hash(hash_node_t **head, const char *key, const char *value)
 {
-	unsigned long int size, index;
-	hash_node_t *node;
+	hash_node_t *tmp;
 
-	if (strlen(key) == 0)
-		return (0);
+	tmp = *head;
 
-	size = ht->size;
-	index = key_index((unsigned const char*)key, size);
-
-	node = malloc(sizeof(hash_node_t));
-	if (!node)
-		return (0);
-
-	node->key = (char *)key;
-	node->value = strdup(value);
-	node->next = NULL;
-
-	if (!ht->array[index])
+	while (tmp != NULL)
 	{
-		ht->array[index] = node;
-		return (1);
+		if (strcmp(key, tmp->key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = strdup(value);
+			return (*head);
+		}
+		tmp = tmp->next;
 	}
-	node->next = ht->array[index];
-	ht->array[index] = node;
-	return (1);
+
+	tmp = malloc(sizeof(hash_node_t));
+
+	if (tmp == NULL)
+		return (NULL);
+
+	tmp->key = strdup(key);
+	tmp->value = strdup(value);
+	tmp->next = *head;
+	*head = tmp;
+
+	return (*head);
 }
 
+/**
+ * hash_table_set - adds a hash (key, value) to a given hash table
+ *
+ * @ht: pointer to the hash table
+ * @key: key of the hash
+ * @value: value to store
+ * Return: 1 if successes, 0 if fails
+ */
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+{
+	unsigned long int k_index;
+
+	if (ht == NULL)
+		return (0);
+
+	if (key == NULL || *key == '\0')
+		return (0);
+
+	k_index = key_index((unsigned char *)key, ht->size);
+
+	if (add_n_hash(&(ht->array[k_index]), key, value) == NULL)
+		return (0);
+
+	return (1);
+}
